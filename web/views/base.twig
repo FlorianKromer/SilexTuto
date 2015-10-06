@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- balises meta pour le mobile-->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <!-- les styles -->
+    <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/css/normalize.css">
+    
+    <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/css/bootstrap.min.css">
+
+    <link href="{{ app.request.basepath }}/css/material.min.css" rel="stylesheet">
+    <link href="{{ app.request.basepath }}/css/ripples.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/css/style.css">
+
+    <title>{% block title %}
+        ProjetTut
+    {% endblock %}</title>
+</head>
+<body {% block bodyattributes %}{% endblock %}>
+    {% block body %}
+        
+    {% endblock %}
+    
+
+    {% block javascripts %}  
+
+        <script type="text/javascript" src="{{ app.request.basepath }}/js/jquery-1.11.3.min.js"></script>
+        
+        <script src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
+
+        <script src="{{ app.request.basepath }}/js/ripples.min.js"></script>
+        <script src="{{ app.request.basepath }}/js/material.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                    // This command is used to initialize some elements and make them work properly
+                    $.material.init();
+                });
+        </script>
+    {% endblock %}
+
+
+</body>
+</html>

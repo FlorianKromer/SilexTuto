@@ -1,0 +1,18 @@
+database:
+    driver: pdo_mysql
+    host: localhost
+    dbname: projet_tut
+    user: root
+    password: 
+    charset: utf8
+
+swiftmailer:
+    transport:            smtp
+    username:             toto@gmail.com
+    password:             azerty
+    host:                 smtp.gmail.com
+    port:                 465
+    encryption:           ssl
+
+general:
+    destinataire: toto@gmail.com
