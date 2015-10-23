@@ -3,15 +3,32 @@
 namespace Entities;
 use Doctrine\ORM\Mapping as ORM;
 
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="posts")
  */
 
-class Posts
+class Posts extends Model
 
 {
+  protected $table = 'posts';
+
+  protected $fillable = [
+    'title', 
+    'author',
+    'date',
+    'content'
+  ];
+
+  protected $casts = [
+    'title'  => 'string',
+    'author' => 'string',
+    'date' =>'string',
+    'content' =>  'string'
+
+  ];
 
   /**
    * @ORM\Column(name="id", type="integer")

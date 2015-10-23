@@ -27,3 +27,10 @@ INSERT INTO `posts` (`id`, `title`, `date`, `author`, `content`) VALUES
 * remplir les parametres dans web/config/setting.yml.dist puis le renommer en setting.yml
 * faire  ```composer install``` à la racine du projet pour installer les vendors
 * se rendre http://localhost/silexTuto/web/
+
+##Remarques:
+Si vous avez le message d'erreur lors de l'authentification oauth: "cURL Error # 60: SSL certificate problem: unable to get local issuer certificate"
+
+Suivre ce lien: http://curl.haxx.se/ca/cacert.pem enregistrer la page sous le nom: "cacert.pem"
+
+Puis dans votre php.ini rajouter la ligne à la fin du fichier: curl.cainfo = "[chemindufichier]\cacert.pem"

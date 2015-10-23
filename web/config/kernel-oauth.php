@@ -10,7 +10,7 @@ define('GITHUB_API_KEY',      $app['config']['oauth']['github_api_key']);
 define('GITHUB_API_SECRET',   $app['config']['oauth']['github_api_secret']);
 
 $app->register(new Gigablah\Silex\OAuth\OAuthServiceProvider(), array(
-    'oauth.services' => array(
+'oauth.services' => array(
         'Facebook' => array(
             'key' => FACEBOOK_API_KEY,
             'secret' => FACEBOOK_API_SECRET,
@@ -47,13 +47,6 @@ $app->register(new Gigablah\Silex\OAuth\OAuthServiceProvider(), array(
     )
 ));
 
-// Provides CSRF token generation
-$app->register(new Silex\Provider\FormServiceProvider());
-
-// Provides session storage
-$app->register(new Silex\Provider\SessionServiceProvider(), array(
-    'session.storage.save_path' => '/tmp'
-));
 
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
@@ -64,15 +57,13 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
                 //'login_path' => '/auth/{service}',
                 //'callback_path' => '/auth/{service}/callback',
                 //'check_path' => '/auth/{service}/check',
-                'failure_path' => '/login',
+                'failure_path' => '/',
                 'with_csrf' => true
             ),
             'logout' => array(
                 'logout_path' => '/logout',
                 'with_csrf' => true
             ),
-            // OAuthInMemoryUserProvider returns a StubUser and is intended only for testing.
-            // Replace this with your own UserProvider and User class.
             'users' => new Gigablah\Silex\OAuth\Security\User\Provider\OAuthInMemoryUserProvider()
         )
     ),

@@ -2,3 +2,4 @@ composer.lock
 composer.phar
 vendor
 web/config/setting.yml
+web/cache

@@ -140,31 +140,23 @@ $app->match('/contact2', function (Request $request) use ($app) {
 })
 ->bind('Contact2');
 
+
 $app->before(function (Symfony\Component\HttpFoundation\Request $request) use ($app) {
-    if (isset($app['security.token_storage'])) {
-        $token = $app['security.token_storage']->getToken();
-    } else {
-        $token = $app['security']->getToken();
-    }
-
+    $token = $app['security']->getToken();
     $app['user'] = null;
-
     if ($token && !$app['security.trust_resolver']->isAnonymous($token)) {
         $app['user'] = $token->getUser();
     }
 });
 
-$app->get('/login', function (Symfony\Component\HttpFoundation\Request $request) use ($app) {
-    $services = array_keys($app['oauth.services']);
 
+$app->get('/login', function () use ($app) {
     return $app['twig']->render(VERSION.'login.twig', array(
         'login_paths' => $app['oauth.login_paths'],
         'logout_path' => $app['url_generator']->generate('logout', array(
             '_csrf_token' => $app['oauth.csrf_token']('logout')
-        )),
-        'error' => $app['security.last_error']($request)
+        ))
     ));
 });
-
-$app->match('/logout', function () {})->bind('logout');
-
+$app->match('/logout', function () {
+})->bind('logout');
