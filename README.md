@@ -25,8 +25,8 @@ INSERT INTO `posts` (`id`, `title`, `date`, `author`, `content`) VALUES
 (2, 'deuuuuz', '2015-10-06', 'Moi', 'kikoooooo');
 ```
 * remplir les parametres dans web/config/setting.yml.dist puis le renommer en setting.yml
-* faire  ```composer install``` à la racine du projet pour installer les vendors
-* se rendre http://localhost/silexTuto/web/
+* faire  ```composer install``` à la racine du projet pour installer les bibliothèques PHP https://getcomposer.org/ 
+* Lancer wamp  et se rendre http://localhost/silexTuto/web/index.php
 
 ##Remarques:
 Si vous avez le message d'erreur lors de l'authentification oauth: "cURL Error # 60: SSL certificate problem: unable to get local issuer certificate"

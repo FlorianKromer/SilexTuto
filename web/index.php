@@ -7,11 +7,6 @@ require __DIR__.'/config/kernel-oauth.php';
 
 require __DIR__.'/src/controllers/controllers.php';
 
-define('VERSION', 'V2/');
-
-
-
-
 
 
 $app->run();
