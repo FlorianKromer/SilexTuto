@@ -85,7 +85,7 @@ $app->get('/blog', function () use ($app) {
 
     return $app['twig']->render(VERSION.'blog.twig', array('posts' => $posts));
 
-});
+})->bind('Blog');
 $app->get('/blog/{id}', function ($id) use ($app) {
     $sql = "SELECT * FROM posts WHERE id = ?";
     $post = $app['db']->fetchAssoc($sql, array((int) $id));
